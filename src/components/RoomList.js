@@ -9,8 +9,6 @@ class RoomList extends Component {
       value: ''
     }
 
-    this.handleChange = this.handleChange.bind(this);
-    this.createRoom = this.createRoom.bind(this);
     // grabbing 'rooms' path from firebase database, assigning as this.roomsRef
     this.roomsRef = this.props.firebase.database().ref('rooms');
   }
@@ -26,16 +24,17 @@ class RoomList extends Component {
     });
   }
 
+  // typing in the form field
   handleChange(event){
     this.setState( {value: event.target.value} );
   }
 
+  // adding the submitted new room to firebase
   createRoom(event){
-    console.log('creater room called');
+    this.setState( {value: '' });
     this.roomsRef.push({
       name: this.state.value
     });
-    this.setState( {value: '' });
     event.preventDefault();
   }
 
@@ -45,20 +44,23 @@ class RoomList extends Component {
         <h1 id='site-name'>Bloc Chat</h1>
         <section className='room-container'>
           <h2>Available Rooms</h2>
-          {
+          { /* looping through the state 'rooms' array assigning each item to an h3 element */
             this.state.rooms.map( (room) =>
             <h3 className='rooms' key={room.key}>{'Room: ' +room.name}</h3>)}
 
-          <form onSubmit={this.createRoom}>
+          {/* form to add/create rooms */}
+          <form onSubmit={(event)=>this.createRoom(event)}>
             <label htmlFor='text' id='room-label'>
-              New room:
+              New room
               <input type='text'
+                     placeholder='Name a room!'
                      id ='room-text-field'
                      value={this.state.value}
-                     onChange={this.handleChange}/>
+                     onChange={(event)=>this.handleChange(event)}/>
             </label>
-            <input type="submit" value="Create room" />
+            <input id='create-room' type="submit" value="Create room" />
           </form>
+
         </section>
       </aside>
     );

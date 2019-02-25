@@ -30,3 +30,19 @@ h2{
   color: #5147B3;
   margin-left: 20px;
 }
+
+#room-label{
+  color: #372CA2;
+  margin: 5px;
+}
+
+#room-text-field{
+  margin-left: 5px;
+  border: 1px white solid;
+}
+
+#create-room{
+  padding: 5px;
+  border: 2px white solid;
+  margin: 5px;
+}
