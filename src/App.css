@@ -3,7 +3,8 @@ aside {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  max-width: 30vw;
+  max-width: 25vw;
+  min-width: 250px;
   background-color: #B1DAEE;
 }
 
@@ -49,8 +50,39 @@ aside {
   border: 1px white solid;
 }
 
-.create-room{
+#create-room {
+  padding: 5px;
+  background-color: #B1DAEE;
+  border: 2px white solid;
+  margin: 10px;
+  font-size: 0.7em;
+}
+
+.modal-btn{
   padding: 5px;
   border: 2px white solid;
   margin: 10px;
+  background-color: #BEB9F1;
+  font-size: 0.9em;
+}
+
+
+
+.modal {
+  height: auto;
+  width: 50vw;
+  background-color: rgba(0,0,0,0.3);
+  opacity: 70%;
+  position: fixed;
+  top: 15vh;
+  left: 25vw;
+  z-index: 1;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-container{
+  display: flex;
 }

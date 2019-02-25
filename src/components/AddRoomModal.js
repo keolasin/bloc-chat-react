@@ -1,21 +1,19 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import AddRoomForm from './AddRoomForm.js';
+
 
 class AddRoomModal extends Component {
   constructor(props){
     super(props);
-
-    this.el = document.createElement('div');
-
-    this.roomsRef = this.props.firebase.database().ref('rooms');
+    this.el = document.createElement('section');
   }
 
   componentDidMount(){
-    document.querySelector('.modal-container').appendChild(this.el);
+    document.querySelector('.modal').appendChild(this.el);
   }
+
   componentWillUnmount(){
-    document.querySelector('.modal-container').removeChild(this.el);
+    document.querySelector('.modal').removeChild(this.el);
   }
 
   render(){

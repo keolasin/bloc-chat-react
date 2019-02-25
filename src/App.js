@@ -21,6 +21,7 @@ class App extends Component {
     return (
       <div className="App">
         <RoomList firebase={firebase} />
+        <section className="modal"></section>
       </div>
     );
   }
