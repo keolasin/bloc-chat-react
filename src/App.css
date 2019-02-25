@@ -13,22 +13,30 @@ aside {
   color: #1D6D93;
 }
 
-h2{
-  color: #BEB9F1;
-  background-color: #372CA2;
+.room-container {
+  background-color: #BEB9F1;
   width: 100%;
+}
+
+.room-container h2 {
+  margin: 10px;
+  color: #BEB9F1;
   text-align: center;
 }
 
-.room-container {
-  background-color: #BEB9F1;
+.room-container header{
+  display: flex;
+  justify-content: space-between;
+  align-content: space-between;
+  align-items: center;
+  background-color: #372CA2;
   width: 100%;
 }
 
 .rooms {
   font-size: 1.5em;
   color: #5147B3;
-  margin-left: 20px;
+  margin-left: 30px;
 }
 
 #room-label{
@@ -41,8 +49,8 @@ h2{
   border: 1px white solid;
 }
 
-#create-room{
+.create-room{
   padding: 5px;
   border: 2px white solid;
-  margin: 5px;
+  margin: 10px;
 }

@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import AddRoomModal from './AddRoomModal.js';
 
 class RoomList extends Component {
   constructor(props){
     super(props);
     this.state = {
       rooms : [],
-      value: ''
+      showRoomModal: false
     }
 
     // grabbing 'rooms' path from firebase database, assigning as this.roomsRef
@@ -22,6 +23,13 @@ class RoomList extends Component {
       // assigning the state property 'rooms' an array containing the names of the rooms in the database
       this.setState( {rooms: this.state.rooms.concat( room )} );
     });
+  }
+
+  handleModalShow(){
+    this.setState( {showRoomModal: true} );
+  }
+  handleModalHide(){
+    this.setState( {showRoomModal: false} );
   }
 
   // typing in the form field
@@ -43,10 +51,22 @@ class RoomList extends Component {
       <aside>
         <h1 id='site-name'>Bloc Chat</h1>
         <section className='room-container'>
-          <h2>Available Rooms</h2>
+          <header>
+            <h2 id='room-head'>Available Rooms</h2>
+            <button className='create-room'
+                    onClick={() => this.handleModalShow}>
+                    Create Room asdfa
+            </button>
+          </header>
           { /* looping through the state 'rooms' array assigning each item to an h3 element */
             this.state.rooms.map( (room) =>
-            <h3 className='rooms' key={room.key}>{'Room: ' +room.name}</h3>)}
+            <h3 className='rooms' key={room.key}>{room.name}</h3>)}
+
+
+
+          <div className='modal-container'>
+          {this.state.showRoomModal ? <AddRoomModal handleModalHide={()=> this.handleModalHide}/> : null}
+          </div>
 
           {/* form to add/create rooms */}
           <form onSubmit={(event)=>this.createRoom(event)}>
@@ -58,7 +78,7 @@ class RoomList extends Component {
                      value={this.state.value}
                      onChange={(event)=>this.handleChange(event)}/>
             </label>
-            <input id='create-room' type="submit" value="Create room" />
+            <input className='create-room' type="submit" value="Create room" />
           </form>
 
         </section>
