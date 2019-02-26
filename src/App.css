@@ -39,6 +39,7 @@ aside {
   font-size: 1.5em;
   color: #5147B3;
   text-align: center;
+  cursor: pointer;
 }
 
 #active-room{
@@ -63,6 +64,7 @@ aside {
   border: 2px white solid;
   margin: 10px;
   font-size: 0.7em;
+  cursor: pointer;
 }
 
 .modal-btn{
@@ -71,6 +73,7 @@ aside {
   margin: 10px;
   background-color: #BEB9F1;
   font-size: 0.9em;
+  cursor: pointer;
 }
 
 .modal {
