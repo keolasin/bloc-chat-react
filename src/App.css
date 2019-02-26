@@ -1,3 +1,4 @@
+/* room container */
 aside {
   display: flex;
   flex-direction: column;
@@ -37,9 +38,15 @@ aside {
 .rooms {
   font-size: 1.5em;
   color: #5147B3;
-  margin-left: 30px;
+  text-align: center;
 }
 
+#active-room{
+  background-color: #372CA2;
+  color: #BEB9F1;
+}
+
+/* add room modal */
 #room-label{
   color: #372CA2;
   margin: 5px;
@@ -65,8 +72,6 @@ aside {
   background-color: #BEB9F1;
   font-size: 0.9em;
 }
-
-
 
 .modal {
   height: auto;

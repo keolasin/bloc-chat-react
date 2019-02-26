@@ -12,6 +12,7 @@ class RoomList extends Component {
     }
     this.handleModalShow = this.handleModalShow.bind(this);
     this.handleModalHide = this.handleModalHide.bind(this);
+
     // grabbing 'rooms' path from firebase database, assigning as this.roomsRef
     this.roomsRef = this.props.firebase.database().ref('rooms');
   }
@@ -50,7 +51,16 @@ class RoomList extends Component {
 
           { /* looping through the state 'rooms' array assigning each item to an h3 element */
             this.state.rooms.map( (room) =>
-            <h3 className='rooms' key={room.key}>{room.name}</h3>)}
+            this.props.activeRoom===room.name ?
+            <h3 className='rooms'
+                key={room.key}
+                id='active-room'
+                onClick={this.props.handleRoomClick}>{room.name}
+            </h3>:
+            <h3 className='rooms'
+                key={room.key}
+                onClick={this.props.handleRoomClick}>{room.name}
+            </h3>)}
 
           <div className='modal-container'>
             {this.state.showRoomModal ?
