@@ -22,9 +22,9 @@ class RoomList extends Component {
     this.roomsRef.on('child_added', snapshot => {
       const room = snapshot.val();
       room.key = snapshot.key;
-
       // assigning the state property 'rooms' an array containing the names of the rooms in the database
       this.setState( {rooms: this.state.rooms.concat( room )} );
+      console.log(room);
     });
   }
 
@@ -54,8 +54,9 @@ class RoomList extends Component {
             this.props.activeRoom===room.name ?
             <h3 className='rooms'
                 key={room.key}
+                value={room.key}
                 id='active-room'
-                onClick={this.props.handleRoomClick}>{room.name}
+                onClick={this.props.handleRoomClick}>{room.name}{console.log(room.key)}
             </h3>:
             <h3 className='rooms'
                 key={room.key}

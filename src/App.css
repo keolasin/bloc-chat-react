@@ -91,6 +91,17 @@ aside {
   justify-content: center;
 }
 
-.form-container{
+.form-container {
   display: flex;
+}
+
+.chat-container {
+  top: 0;
+  left: 25vw;
+  position: fixed;
+  display: flex;
+}
+
+.chat-container h2 {
+  
 }

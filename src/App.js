@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import * as firebase from 'firebase';
 import RoomList from './components/RoomList.js';
-import MessageList from './components/MessageList.js';
+import Chatroom from './components/Chatroom.js';
 
 
 // Initialize Firebase
@@ -21,14 +21,17 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      activeRoom: {}
+      activeRoom: '', // currently selected room name/value
+      activeRoomId: '' // currently selected room key (for firebase)
     }
 
     this.handleRoomClick = this.handleRoomClick.bind(this);
   }
 
   handleRoomClick(event){
-    this.setState( {activeRoom: event.target.innerHTML } );
+    this.setState( {activeRoom: event.target.innerHTML } ); // assigning clicked room name to state
+    this.setState( {activeRoomId: event.target.key}); // assigning clicked room key to state, except event.target.key is returning undefined despite there being a key attribute for the element, with value of 'room.key', which should be the unique roomId defined by firebase (string of random letters/numbers)
+    console.log(this.state.activeRoomId);
   }
 
   render() {
@@ -37,8 +40,8 @@ class App extends Component {
         <RoomList firebase={firebase}
                   activeRoom={this.state.activeRoom}
                   handleRoomClick={this.handleRoomClick} />
-        <MessageList firebase={firebase}
-                     activeRoom={this.state.activeRoom}/>
+        <Chatroom firebase={firebase}
+                  activeRoom={this.state.activeRoom}/>
         <section className="modal"></section>
       </div>
     );
