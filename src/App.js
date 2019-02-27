@@ -29,7 +29,7 @@ class App extends Component {
   }
 
   handleRoomClick(event, room){
-    this.setState( {activeRoom: event.target.innerHTML } ); // assigning clicked room name to state
+    this.setState( {activeRoom: room.name } ); // assigning clicked room name to state
     this.setState( {activeRoomId: room.key}); // assigning clicked room key to state
     console.log(this.state.activeRoomId);
   }
