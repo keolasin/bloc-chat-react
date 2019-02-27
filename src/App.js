@@ -21,17 +21,15 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      activeRoom: '', // currently selected room name/value
-      activeRoomId: '' // currently selected room key (for firebase)
+      activeRoom: {}, // currently selected room name/value
     }
 
     this.handleRoomClick = this.handleRoomClick.bind(this);
   }
 
   handleRoomClick(event, room){
-    this.setState( {activeRoom: room.name } ); // assigning clicked room name to state
-    this.setState( {activeRoomId: room.key}); // assigning clicked room key to state
-    console.log(this.state.activeRoomId);
+    this.setState( {activeRoom: room } ); // assigning clicked room object to state
+    console.log(this.state.activeRoom);
   }
 
   render() {
