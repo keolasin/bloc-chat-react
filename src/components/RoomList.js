@@ -56,11 +56,11 @@ class RoomList extends Component {
                 key={room.key}
                 value={room.key}
                 id='active-room'
-                onClick={this.props.handleRoomClick}>{room.name}{console.log(room.key)}
+                onClick={(event, room)=> this.props.handleRoomClick(event,room)}>{room.name}
             </h3>:
             <h3 className='rooms'
                 key={room.key}
-                onClick={this.props.handleRoomClick}>{room.name}
+                onClick={(event, room)=> this.props.handleRoomClick(event,room)}>{room.name}
             </h3>)}
 
           <div className='modal-container'>
