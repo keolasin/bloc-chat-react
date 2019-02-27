@@ -28,9 +28,9 @@ class App extends Component {
     this.handleRoomClick = this.handleRoomClick.bind(this);
   }
 
-  handleRoomClick(event){
+  handleRoomClick(event, room){
     this.setState( {activeRoom: event.target.innerHTML } ); // assigning clicked room name to state
-    this.setState( {activeRoomId: event.target.key}); // assigning clicked room key to state, except event.target.key is returning undefined despite there being a key attribute for the element, with value of 'room.key', which should be the unique roomId defined by firebase (string of random letters/numbers)
+    this.setState( {activeRoomId: room.key}); // assigning clicked room key to state
     console.log(this.state.activeRoomId);
   }
 
