@@ -49,9 +49,9 @@ class RoomList extends Component {
             </button>
           </header>
 
-          { /* looping through the state 'rooms' array assigning each item to an h3 element */
+          { /* looping through the state 'rooms' array assigning each item to an h3 element and giving the activeRoom/clicked room a unique CSS id*/
             this.state.rooms.map( (room) =>
-            this.props.activeRoom===room.name ?
+            this.props.activeRoom.name===room.name ?
             <h3 className='rooms'
                 key={room.key}
                 value={room.key}
