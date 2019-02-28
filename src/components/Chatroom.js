@@ -55,7 +55,7 @@ class Chatroom extends Component {
           <h1 className='active-room'>{this.props.activeRoom.name}</h1>
         </header>
         <article>
-
+          <p>{this.props.activeRoom.key}</p>
         </article>
       </main>
     );

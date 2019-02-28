@@ -27,7 +27,7 @@ class App extends Component {
 
   handleRoomClick(room){
     this.setState( {activeRoom: room } ); // assigning clicked room object to state
-    console.log(this.state.activeRoom);
+    console.log('active room is now ' +this.state.activeRoom.name);
   }
 
   render() {
