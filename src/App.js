@@ -23,11 +23,9 @@ class App extends Component {
     this.state = {
       activeRoom: {}, // currently selected room name/value
     }
-
-    this.handleRoomClick = this.handleRoomClick.bind(this);
   }
 
-  handleRoomClick(event, room){
+  handleRoomClick(room){
     this.setState( {activeRoom: room } ); // assigning clicked room object to state
     console.log(this.state.activeRoom);
   }
@@ -37,7 +35,7 @@ class App extends Component {
       <div className="App">
         <RoomList firebase={firebase}
                   activeRoom={this.state.activeRoom}
-                  handleRoomClick={this.handleRoomClick} />
+                  handleRoomClick={(event)=>this.handleRoomClick(event, this.room)} />
         <Chatroom firebase={firebase}
                   activeRoom={this.state.activeRoom}/>
         <section className="modal"></section>

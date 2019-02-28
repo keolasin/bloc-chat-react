@@ -22,9 +22,10 @@ class RoomList extends Component {
     this.roomsRef.on('child_added', snapshot => {
       const room = snapshot.val();
       room.key = snapshot.key;
-      // assigning the state property 'rooms' an array containing the names of the rooms in the database
+      // assigning the state property 'rooms' an array containing the room objects in the database
       this.setState( {rooms: this.state.rooms.concat( room )} );
       console.log(room);
+      console.log(room.name);
     });
   }
 
@@ -51,16 +52,15 @@ class RoomList extends Component {
 
           { /* looping through the state 'rooms' array assigning each item to an h3 element and giving the activeRoom/clicked room a unique CSS id*/
             this.state.rooms.map( (room) =>
-            this.props.activeRoom.name===room.name ?
+            this.props.activeRoom.name ===room.name ?
             <h3 className='rooms'
                 key={room.key}
-                value={room.key}
                 id='active-room'
-                onClick={(event, room)=> this.props.handleRoomClick(event,room)}>{room.name}
+                onClick={()=>this.props.handleRoomClick(room) }>{room.name}
             </h3>:
             <h3 className='rooms'
                 key={room.key}
-                onClick={(event, room)=> this.props.handleRoomClick(event,room)}>{room.name}
+                onClick={()=>this.props.handleRoomClick(room)}>{room.name}
             </h3>)}
 
           <div className='modal-container'>
