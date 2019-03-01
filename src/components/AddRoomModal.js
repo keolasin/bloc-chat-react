@@ -10,10 +10,12 @@ class AddRoomModal extends Component {
 
   componentDidMount(){
     document.querySelector('.modal').appendChild(this.el);
+    document.querySelector('.modal').classList.add('showing');
   }
 
   componentWillUnmount(){
     document.querySelector('.modal').removeChild(this.el);
+    document.querySelector('.modal').classList.remove('showing');
   }
 
   render(){

@@ -22,12 +22,12 @@ class Chatroom extends Component {
 
   messageSorter(){
     // need to make sure the message 'roomId' matches our activeRoom, use .filter()
-    let roomChecked = this.state.messages.filter( (message) =>
-      message.child('roomId') === this.props.activeRoom.key
+    this.props.activeRoom.messages = this.state.messages.filter( (message) =>
+      message.roomId === this.props.activeRoom.key
     );
 
     // want to put our messages in a chronologically sorted array, older messages first (smaller unix timestamp integer)
-    // use quicksort
+    // use quicksort? .sort?
     /*let timeSorted = sortedMessagesArray.map( message =>
       message.child('sentAt')
     );

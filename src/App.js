@@ -22,11 +22,12 @@ class App extends Component {
     super(props);
     this.state = {
       activeRoom: {}, // currently selected room name/value
+      activeRoomId:
     }
   }
 
   handleRoomClick(room){
-    this.setState( {activeRoom: room } ); // assigning clicked room object to state
+    this.setState( {activeRoom: event.target.innerHtml } ); // assigning clicked room object to state
     console.log('active room is now ' +this.state.activeRoom.name);
   }
 

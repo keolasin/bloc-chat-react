@@ -58,7 +58,8 @@ class RoomList extends Component {
           }
 
           <div className='modal-container'>
-            {this.state.showRoomModal ?
+            {
+              this.state.showRoomModal ?
               (<AddRoomModal>
                   <AddRoomForm roomsRef={this.roomsRef}
                                handleModalHide={this.handleModalHide}
