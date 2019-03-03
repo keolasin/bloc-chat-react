@@ -1,18 +1,30 @@
 /* room container */
+.App {
+  display: flex;
+}
+
 aside {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  max-width: 25vw;
+  max-width: 30vw;
   min-width: 250px;
+  width: 30%;
+  height: auto;
   background-color: #B1DAEE;
 }
 
 #site-name {
-  font-size: 2.5em;
-  margin: 10px 50px;
+  font-size: 2.3em;
+  margin: 10px 20px;
   color: #1D6D93;
+}
+
+.site-header{
+  flex-grow: 2;
+  max-height: 80px;
+  min-height: 50px;
 }
 
 .room-container {
@@ -105,13 +117,48 @@ aside {
   display: flex;
 }
 
-.chat-container {
+.chatroom-container {
   top: 0;
   left: 25vw;
-  position: fixed;
   display: flex;
+  flex-direction: column;
 }
 
-.chat-container h2 {
+.chatroom-container header {
+  background-color: #B1DAEE;
+  color: #1D6D93;
+  width: 75vw;
+  flex-grow: 2;
+  max-height: 80px;
+  min-height: 50px;
 
+}
+
+.message-container {
+  display: flex;
+  top: 0;
+  left: 25vw;
+  background-color: #BEB9F1;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.message-content {
+  font-size: 1em;
+  flex-grow: 2;
+  margin-left: 10px;
+  border: 1px solid #372CA2;
+}
+
+.message-sentAt {
+  margin: 0px 10px;
+  font-size: 0.6em;
+  color: grey;
+  bottom: 0;
+}
+
+.message-username {
+  font-size: 1.1em;
+  color: #1D6D93;
+  margin-right: 10px;
 }

@@ -38,7 +38,9 @@ class RoomList extends Component {
   render() {
     return (
       <aside>
-        <h1 id='site-name'>Bloc Chat</h1>
+        <header className='site-header'>
+          <h1 id='site-name'>Bloc Chat</h1>
+        </header>
         <section className='room-container'>
           <header>
             <h2 id='room-head'>Available Rooms</h2>
@@ -56,6 +58,7 @@ class RoomList extends Component {
                   onClick={()=>this.props.handleRoomClick(room)}>{room.name}
               </h3>)
           }
+
 
           <div className='modal-container'>
             {

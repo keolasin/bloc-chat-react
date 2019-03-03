@@ -6,42 +6,42 @@ class Chatroom extends Component {
     super(props);
     this.state = {
       value: '',
-      messages: [],
-      sortedMessages: []
+      messages: [], // all messages pulled from firebase
+      activeMessages: [] // messages with matching roomId to activeRoom
     }
 
-    this.messagesRef = this.props.firebase.database().ref('Messages');
+    this.messagesRef = this.props.firebase.database().ref('messages');
+    console.log(this.messagesRef);
   }
 
   componentDidMount(){
     this.messagesRef.on('child_added', snapshot => {
       const message = snapshot.val();
+      message.key = snapshot.key;
+      console.log(message);
       this.setState( { messages: this.state.messages.concat(message) } );
-    });
-  }
-
-  messageSorter(){
-    // need to make sure the message 'roomId' matches our activeRoom, use .filter()
-    this.props.activeRoom.messages = this.state.messages.filter( (message) =>
-      message.roomId === this.props.activeRoom.key
+      }
     );
+  }
 
-    // want to put our messages in a chronologically sorted array, older messages first (smaller unix timestamp integer)
-    // use quicksort? .sort?
-    /*let timeSorted = sortedMessagesArray.map( message =>
-      message.child('sentAt')
+  componentDidUpdate(prevProps){
+    if (this.props.activeRoom !== prevProps.activeRoom){
+      console.log('Props did update.');
+      this.getActiveRoomMessages();
+    }
+  }
+
+  getActiveRoomMessages(){
+    // pulling messages with message.roomId matching this.props.activeRoom.key
+    console.log('getActiveRoomMessages called');
+    this.setState( {activeMessages: this.state.messages.filter( message =>
+      message.roomId == this.props.activeRoom.key)}
     );
-    */
-    //this.setState( { sortedMessages: sortedMessagesArray} );
   }
 
-  quickSort(unsortedArray){
-    const sortedArray = '';
-  }
-
-  timeConverter(message){
-    let date = new Date(message.child('sentAt'));
-    let hour = date.getHour();
+  timeConverter(time){
+    let date = new Date(time);
+    let hour = date.getHours();
     let minutes = '0'+date.getMinutes();
     let seconds = '0'+date.getSeconds();
 
@@ -50,14 +50,19 @@ class Chatroom extends Component {
 
   render(){
     return(
-      <main className='chat-container'>
+      <article className='chatroom-container'>
         <header>
-          <h1 className='active-room'>{this.props.activeRoom.name}</h1>
+          <h1 className='room-name'>{this.props.activeRoom.name}</h1>
         </header>
-        <article>
-          <p>{this.props.activeRoom.key}</p>
-        </article>
-      </main>
+        {this.state.activeMessages.map( message =>
+          <section className='message-container'
+                   key={message.key}>
+            <p className='message-content'>{message.content}</p>
+            <p className='message-sentAt'>{this.timeConverter(message.sentAt)}</p>
+            <p className='message-username'>{message.username}</p>
+          </section>
+        )}
+      </article>
     );
   }
 }
