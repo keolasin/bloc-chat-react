@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import MessageField from './components/MessageField.js'
 
 class Chatroom extends Component {
   constructor(props){
