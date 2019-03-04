@@ -3,7 +3,7 @@ import './App.css';
 import * as firebase from 'firebase';
 import RoomList from './components/RoomList.js';
 import Chatroom from './components/Chatroom.js';
-
+import User from './components/User.js';
 
 // Initialize Firebase
 var config = {
@@ -37,6 +37,7 @@ class App extends Component {
                   handleRoomClick={(event)=>this.handleRoomClick(event, this.room)} />
         <Chatroom firebase={firebase}
                   activeRoom={this.state.activeRoom}/>
+        <User firebase={firebase} />
         <section className="modal"></section>
       </div>
     );
