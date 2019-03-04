@@ -40,12 +40,15 @@ class Chatroom extends Component {
   }
 
   timeConverter(time){
-    let date = new Date(time);
-    let hour = date.getHours();
-    let minutes = '0'+date.getMinutes();
-    let seconds = '0'+date.getSeconds();
+    let exactTime = new Date(time);
+    let month = exactTime.getMonth();
+    let date = exactTime.getDate();
+    let year = exactTime.getFullYear();
+    let hour = exactTime.getHours();
+    let minutes = '0'+exactTime.getMinutes();
+    let seconds = '0'+exactTime.getSeconds();
 
-    return `${hour}:${minutes.substr(-2)}:${seconds.substr(-2)} on ${date}`;
+    return `${hour}:${minutes.substr(-2)}:${seconds.substr(-2)} on ${month+1}/${date}/${year}`;
   }
 
   render(){
