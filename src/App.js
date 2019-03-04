@@ -3,7 +3,7 @@ import './App.css';
 import * as firebase from 'firebase';
 import RoomList from './components/RoomList.js';
 import Chatroom from './components/Chatroom.js';
-
+import User from './components/User.js';
 
 // Initialize Firebase
 var config = {
@@ -22,7 +22,14 @@ class App extends Component {
     super(props);
     this.state = {
       activeRoom: {}, // currently selected room name/value
+      user: {} // user signed in, default 'guest'
     }
+  }
+
+  setUser(user){
+    console.log(user);
+    this.setState( {user: user} ); // user state assigned to the google user who signs in from User component
+    console.log(this.state.user);
   }
 
   handleRoomClick(room){
@@ -37,6 +44,7 @@ class App extends Component {
                   handleRoomClick={(event)=>this.handleRoomClick(event, this.room)} />
         <Chatroom firebase={firebase}
                   activeRoom={this.state.activeRoom}/>
+        <User firebase={firebase} setUser={(event)=>this.setUser(event, this.user)} user={this.state.user} />
         <section className="modal"></section>
       </div>
     );
