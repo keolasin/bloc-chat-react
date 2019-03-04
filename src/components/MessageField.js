@@ -7,6 +7,8 @@ class MessageList extends Component {
     this.state = {
       value=''
     }
+    
+    this.messagesRef = this.props.firebase.database().ref('messages');
   }
   
   // typing in the enter message form field
@@ -16,9 +18,14 @@ class MessageList extends Component {
   
   // adding the submitted message to the firebase database
   handleMessageSubmit(event){
-    this.props.messages.push({
-      
-    })
+    this.props.messagesRef.push({
+      content: this.state.value,
+      roomId: this.props.activeRoom.key,
+      username: this.props.user,
+      sentAt: this.props.firebase.database.ServerValue.TIMESTAMP
+    });
+    this.setState( { value: '' } );
+    event.preventDefault();
   }
   
   render(){
