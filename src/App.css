@@ -10,7 +10,7 @@ aside {
   align-items: flex-start;
   max-width: 30vw;
   min-width: 250px;
-  width: 30%;
+  flex-grow: 1;
   height: auto;
   background-color: #B1DAEE;
 }
@@ -122,12 +122,14 @@ aside {
   left: 25vw;
   display: flex;
   flex-direction: column;
+  flex-grow: 3;
 }
 
 .chatroom-container header {
   background-color: #B1DAEE;
   color: #1D6D93;
-  width: 75vw;
+  width: 60vw;
+  max-width: 70vw;
   flex-grow: 2;
   max-height: 80px;
   min-height: 50px;
@@ -161,4 +163,31 @@ aside {
   font-size: 1.1em;
   color: #1D6D93;
   margin-right: 10px;
+}
+
+.user-signIn {
+  top: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-content: center;
+  flex-grow: 1;
+  background-color: #1D6D93;
+}
+
+.user-signIn h1{
+  font-size: 1.5em;
+  color: #B1DAEE;
+  margin: 5px;
+}
+
+.user-signIn button {
+  background-color: #1D6D93;
+  color: #B1DAEE;
+  border: none;
+  height: 50px;
+  max-height: 80px;
+  border: 1px white solid;
+  flex-grow: 2;
+  min-width: 5vw;
 }
