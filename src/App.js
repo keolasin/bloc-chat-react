@@ -44,7 +44,8 @@ class App extends Component {
                   handleRoomClick={(event)=>this.handleRoomClick(event, this.room)} />
         <Chatroom firebase={firebase}
                   activeRoom={this.state.activeRoom}/>
-        <User firebase={firebase} setUser={(event)=>this.setUser(event, this.user)} user={this.state.user} />
+        <User firebase={firebase}
+              setUser={(event)=>this.setUser(event, this.user)} user={this.state.user} />
         <section className="modal"></section>
       </div>
     );
