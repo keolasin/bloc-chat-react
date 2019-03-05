@@ -1,6 +1,12 @@
 /* room container */
+html, body {
+  height: 100%;
+  margin: 0;
+}
 .App {
   display: flex;
+  height: 100vh;
+  background-color: #B1DAEE;
 }
 
 aside {
@@ -8,34 +14,32 @@ aside {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  max-width: 30vw;
-  min-width: 250px;
-  flex-grow: 1;
-  height: auto;
-  background-color: #B1DAEE;
+  flex-basis: content;
+  background-color: #BEB9F1;
+  border-right: white 1px solid;
+  max-width: 25vw;
 }
 
 #site-name {
-  font-size: 2.3em;
+  font-size: 2.0em;
   margin: 10px 20px;
-  color: #1D6D93;
+  color: #372CA2;
 }
 
 .site-header{
-  flex-grow: 2;
-  max-height: 80px;
-  min-height: 50px;
+  flex-basis: content;
 }
 
 .room-container {
   background-color: #BEB9F1;
-  width: 100%;
+  flex-basis: content;
 }
 
 .room-container h2 {
   margin: 10px;
   color: #BEB9F1;
   text-align: center;
+  flex-basis: content;
 }
 
 .room-container header{
@@ -44,9 +48,12 @@ aside {
   align-content: space-between;
   align-items: center;
   background-color: #372CA2;
-  width: 100%;
+  flex-basis: content;
 }
 
+#room-head{
+  flex-basis: content;
+}
 .rooms {
   font-size: 1.5em;
   color: #5147B3;
@@ -99,10 +106,9 @@ aside {
 }
 
 .modal > section{
-  height: auto;
+  height: 25vh;
   width: 50vw;
-  background-color: rgba(0,0,0,0.3);
-  opacity: 70%;
+  background-color: #B1DAEE;
   position: fixed;
   top: 15vh;
   left: 25vw;
@@ -111,29 +117,37 @@ aside {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-basis: content;
 }
 
 .form-container {
   display: flex;
+  align-items: center;
+  background-color: white;
 }
 
 .chatroom-container {
-  top: 0;
   left: 25vw;
   display: flex;
   flex-direction: column;
   flex-grow: 3;
+  width: fill;
+  height: auto;
+  background-color: #B1DAEE;
+}
+
+.messages-bin{
+  overflow: auto;
 }
 
 .chatroom-container header {
   background-color: #B1DAEE;
   color: #1D6D93;
-  width: 60vw;
-  max-width: 70vw;
-  flex-grow: 2;
-  max-height: 80px;
-  min-height: 50px;
+  margin-left: 10px;
+}
 
+.room-name{
+  max-height: 2em;
 }
 
 .message-container {
@@ -149,7 +163,6 @@ aside {
   font-size: 1em;
   flex-grow: 2;
   margin-left: 10px;
-  border: 1px solid #372CA2;
 }
 
 .message-sentAt {
@@ -168,11 +181,14 @@ aside {
 .user-signIn {
   top: 0;
   display: flex;
+  position: fixed;
+  right: 0;
+  flex-basis: content;
   align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: center;
   align-content: center;
-  flex-grow: 1;
   background-color: #1D6D93;
+  border: 1px white solid;
 }
 
 .user-signIn h1{
@@ -187,7 +203,40 @@ aside {
   border: none;
   height: 50px;
   max-height: 80px;
-  border: 1px white solid;
+  font-size: 1.2em;
+  flex-basis: auto;
+}
+
+/* message input field */
+.message-form-container {
+  height: 10%;
+  bottom: 0;
+  display: flex;
+}
+.message-form-container form{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.input-message-field{
   flex-grow: 2;
-  min-width: 5vw;
+  height: 50px;
+  background-color: #B1DAEE;
+  color: #1D6D93;
+  font-size: 1.2em;
+  border: 1px solid #1D6D93;
+  margin-left: 5px;
+}
+
+#submit-message {
+  padding: 5px;
+  border: 2px white solid;
+  margin: 10px;
+  background-color: #1D6D93;
+  color: #B1DAEE;
+  font-size: 1.2em;
+  cursor: pointer;
 }
