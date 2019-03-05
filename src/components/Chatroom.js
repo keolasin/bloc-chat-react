@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import MessageField from './MessageField.js'
 
 class Chatroom extends Component {
   constructor(props){
@@ -7,35 +8,43 @@ class Chatroom extends Component {
     this.state = {
       value: '',
       messages: [], // all messages pulled from firebase
-      activeMessages: [] // messages with matching roomId to activeRoom
+      activeMessages: [], // messages with matching roomId to activeRoom
+      messageAdded: false
     }
 
     this.messagesRef = this.props.firebase.database().ref('messages');
-    console.log(this.messagesRef);
   }
 
   componentDidMount(){
+    this.refreshMessages();
+  }
+
+  refreshMessages(){
     this.messagesRef.on('child_added', snapshot => {
       const message = snapshot.val();
       message.key = snapshot.key;
-      console.log(message);
-      this.setState( { messages: this.state.messages.concat(message) } );
-      }
-    );
+      this.setState( { messages: this.state.messages.concat(message)});
+    });
   }
 
-  componentDidUpdate(prevProps){
+  componentDidUpdate(prevProps, prevState){
     if (this.props.activeRoom !== prevProps.activeRoom){
-      console.log('Props did update.');
       this.getActiveRoomMessages();
     }
+    if (this.state.messageAdded !== prevState.messageAdded){
+      this.getActiveRoomMessages();
+      this.setState({messageAdded: false});
+    }
+  }
+
+  handleMessageAdded(){
+    this.setState( {messageAdded: true} );
   }
 
   getActiveRoomMessages(){
     // pulling messages with message.roomId matching this.props.activeRoom.key
-    console.log('getActiveRoomMessages called');
     this.setState( {activeMessages: this.state.messages.filter( message =>
-      message.roomId == this.props.activeRoom.key)}
+      message.roomId == this.props.activeRoom.key)} // need to check type so I can use ===
     );
   }
 
@@ -57,14 +66,20 @@ class Chatroom extends Component {
         <header>
           <h1 className='room-name'>{this.props.activeRoom.name}</h1>
         </header>
-        {this.state.activeMessages.map( message =>
-          <section className='message-container'
-                   key={message.key}>
-            <p className='message-content'>{message.content}</p>
-            <p className='message-sentAt'>{this.timeConverter(message.sentAt)}</p>
-            <p className='message-username'>{message.username}</p>
-          </section>
-        )}
+        <section className='messages-bin'>
+          {this.state.activeMessages.map( message =>
+            <section className='message-container'
+                     key={message.key}>
+              <p className='message-content'>{message.content}</p>
+              <p className='message-sentAt'>{this.timeConverter(message.sentAt)}</p>
+              <p className='message-username'>{message.username}</p>
+            </section>
+          )}
+        </section>
+        <MessageField user={this.props.user}
+                      activeRoom={this.props.activeRoom}
+                      firebase={this.props.firebase}
+                      handleMessageAdded={()=>this.handleMessageAdded()} />
       </article>
     );
   }
