@@ -66,7 +66,9 @@ class Chatroom extends Component {
             <p className='message-username'>{message.username}</p>
           </section>
         )}
-        <MessageField user={this.props.user} activeRoom={this.props.activeRoom} />
+        <MessageField user={this.props.user} 
+                      activeRoom={this.props.activeRoom}
+                      firebase={this.props.firebase}/>
       </article>
     );
   }
