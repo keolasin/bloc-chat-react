@@ -27,12 +27,15 @@ class RoomList extends Component {
     });
   }
 
-  handleModalShow(){
+  handleModalShow(event){
+    (console.log(event.target));
     this.setState( {showRoomModal: true} );
-
   }
-  handleModalHide(){
+  handleModalHide(event){
     this.setState( {showRoomModal: false} );
+  }
+  handleDeleteRoom(){
+    console.log(this.props.activeRoom.key);
   }
 
   render() {
@@ -56,12 +59,18 @@ class RoomList extends Component {
                   key={room.key}
                   id={this.props.activeRoom.key === room.key ? 'active-room' : null}
                   onClick={()=>this.props.handleRoomClick(room)}>{room.name}
-              </h3>)
+              </h3>
+            )
           }
+
+          <button className='del-room-btn'
+                  onClick={this.handleDeleteRoom}>
+                  Delete Selected Room
+          </button>
 
 
           <div className='modal-container'>
-            {
+            { // room modal showing if showRoomModal true, true when 'add room' button clicked
               this.state.showRoomModal ?
               (<AddRoomModal>
                   <AddRoomForm roomsRef={this.roomsRef}
