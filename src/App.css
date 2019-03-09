@@ -66,6 +66,16 @@ aside {
   color: #BEB9F1;
 }
 
+.delete-room-button{
+  padding: 5px;
+  border: 2px white solid;
+  margin: 10px;
+  color: white;
+  background-color: #372CA2;
+  font-size: 0.9em;
+  cursor: pointer;
+}
+
 /* add room modal */
 #room-label{
   color: #372CA2;
