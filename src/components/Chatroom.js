@@ -9,37 +9,42 @@ class Chatroom extends Component {
       value: '',
       messages: [], // all messages pulled from firebase
       activeMessages: [], // messages with matching roomId to activeRoom
-      messageAdded: false
+      messageAdded: false // checking if a message has been added
     }
 
     this.messagesRef = this.props.firebase.database().ref('messages');
   }
 
-  componentDidMount(){
+  componentDidMount(){ // need to get the messages currently in the room on mount
     this.refreshMessages();
   }
 
-  refreshMessages(){
+  refreshMessages(){ // checking messages in the room currently
     this.messagesRef.on('child_added', snapshot => {
       const message = snapshot.val();
       message.key = snapshot.key;
+      // adding the messages from firebase to the state 'messages'
       this.setState( { messages: this.state.messages.concat(message)});
     });
   }
 
   componentDidUpdate(prevProps, prevState){
+    // when component updates, check if we are in the activeRoom and get those msgs
     if (this.props.activeRoom !== prevProps.activeRoom){
       this.getActiveRoomMessages();
     }
+    // check if a new message as been added to firebase using state change
     if (this.state.messageAdded !== prevState.messageAdded){
       this.getActiveRoomMessages();
-      this.setState({messageAdded: false});
+      this.setState({messageAdded: false}); // reset state after refresh for next new msg submit
     }
   }
 
+  // passed as prop down to MessageField component, should trigger when a new msg is submitted
   handleMessageAdded(){
     this.setState( {messageAdded: true} );
   }
+
 
   getActiveRoomMessages(){
     // pulling messages with message.roomId matching this.props.activeRoom.key
@@ -48,6 +53,7 @@ class Chatroom extends Component {
     );
   }
 
+  // converting firebase unix time to desired format
   timeConverter(time){
     let exactTime = new Date(time);
     let month = exactTime.getMonth();
@@ -57,6 +63,7 @@ class Chatroom extends Component {
     let minutes = '0'+exactTime.getMinutes();
     let seconds = '0'+exactTime.getSeconds();
 
+    // time + date string, format of HH:MM:SS on MM/DD/YYYY
     return `${hour}:${minutes.substr(-2)}:${seconds.substr(-2)} on ${month+1}/${date}/${year}`;
   }
 

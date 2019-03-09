@@ -7,7 +7,6 @@ class MessageField extends Component {
     this.state = {
       value: ''
     }
-
     this.messagesRef = this.props.firebase.database().ref('messages');
   }
 
@@ -19,14 +18,14 @@ class MessageField extends Component {
   // adding the submitted message to the firebase database
   handleMessageSubmit(event){
     this.messagesRef.push( {
-        content: this.state.value,
-        roomId: this.props.activeRoom.key,
-        username: (this.props.user ? this.props.user.displayName : 'Guest'),
-        sentAt: this.props.firebase.database.ServerValue.TIMESTAMP
+        content: this.state.value, // the message typed in by user
+        roomId: this.props.activeRoom.key, // the active room the user is in
+        username: (this.props.user ? this.props.user.displayName : 'Guest'), // if user is logged in, using their displayName, otherwise default 'Guest'
+        sentAt: this.props.firebase.database.ServerValue.TIMESTAMP // server TIMESTAMP
       }
     );
-    this.setState( { value: '' } );
-    this.props.handleMessageAdded();
+    this.setState( { value: '' } ); // resetting value
+    this.props.handleMessageAdded(); // tell parent comp that message has been added, trigger state change in parent comp and DOM refresh
     event.preventDefault();
   }
 

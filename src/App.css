@@ -144,6 +144,7 @@ aside {
   background-color: #B1DAEE;
   color: #1D6D93;
   margin-left: 10px;
+  height: 10%;
 }
 
 .room-name{
@@ -184,7 +185,7 @@ aside {
   position: fixed;
   right: 0;
   flex-basis: content;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   align-content: center;
   background-color: #1D6D93;
@@ -194,7 +195,9 @@ aside {
 .user-signIn h1{
   font-size: 1.5em;
   color: #B1DAEE;
-  margin: 5px;
+  margin: 0px 5px;
+  align-text: center;
+  justify-content: center;
 }
 
 .user-signIn button {
@@ -203,8 +206,9 @@ aside {
   border: none;
   height: 50px;
   max-height: 80px;
-  font-size: 1.2em;
+  font-size: 1em;
   flex-basis: auto;
+  border-left: white 1px solid;
 }
 
 /* message input field */

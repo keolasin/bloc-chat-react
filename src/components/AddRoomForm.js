@@ -9,17 +9,17 @@ class AddRoomForm extends Component {
     }
   }
 
-  // typing in the form field
+  // update DOM when typing in the form field (due to change in state)
   handleChange(event){
     this.setState( {value: event.target.value} );
   }
 
   // adding the submitted new room to firebase
   createRoom(event){
-    this.props.roomsRef.push({
+    this.props.roomsRef.push({ // pushing the state 'value' to the new room on button click
       name: this.state.value
     });
-    this.setState( {value: '' } );
+    this.setState( {value: '' } ); // resetting the state value to ''
     event.preventDefault();
   }
 
