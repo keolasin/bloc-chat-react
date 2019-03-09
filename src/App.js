@@ -39,7 +39,7 @@ class App extends Component {
       <div className="App">
         <RoomList firebase={firebase}
                   activeRoom={this.state.activeRoom}
-                  handleRoomClick={this.handleRoomClick} />
+                  handleRoomClick={(event)=>this.handleRoomClick(event, this.room)} />
         <Chatroom firebase={firebase}
                   activeRoom={this.state.activeRoom}
                   user={this.state.user}
