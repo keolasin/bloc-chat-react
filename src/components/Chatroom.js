@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import MessageField from './MessageField.js'
 
 class Chatroom extends Component {
@@ -49,7 +48,7 @@ class Chatroom extends Component {
   getActiveRoomMessages(){
     // pulling messages with message.roomId matching this.props.activeRoom.key
     this.setState( {activeMessages: this.state.messages.filter( message =>
-      message.roomId == this.props.activeRoom.key)} // need to check type so I can use ===
+      message.roomId == this.props.activeRoom.key)}
     );
   }
 

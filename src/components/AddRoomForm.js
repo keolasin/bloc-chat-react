@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 
 class AddRoomForm extends Component {
   constructor(props){

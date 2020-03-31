@@ -4,7 +4,6 @@ import * as firebase from 'firebase';
 import RoomList from './components/RoomList.js';
 import Chatroom from './components/Chatroom.js';
 import User from './components/User.js';
-import About from './components/About.js';
 
 // Initialize Firebase
 var config = {
