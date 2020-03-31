@@ -54,6 +54,15 @@ aside {
 #room-head{
   flex-basis: content;
 }
+
+.room-button-container{
+  display: flex;
+  align-items: center;
+  align-content: flex-start;
+  justify-content: space-around;
+}
+
+
 .rooms {
   font-size: 1.5em;
   color: #5147B3;
@@ -64,6 +73,16 @@ aside {
 #active-room{
   background-color: #372CA2;
   color: #BEB9F1;
+}
+
+.delete-room-button{
+  padding: 5px;
+  border: 2px white solid;
+  margin: 10px;
+  color: white;
+  background-color: #372CA2;
+  font-size: 0.9em;
+  cursor: pointer;
 }
 
 /* add room modal */
