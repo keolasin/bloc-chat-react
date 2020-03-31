@@ -27,13 +27,6 @@ class RoomList extends Component {
     });
   }
 
-
-  componentDidUpdate(prevState){
-    if (this.state.rooms !== prevState.rooms){
-
-    }
-  }
-
   handleModalShow(){
     this.setState( {showRoomModal: true} );
   }

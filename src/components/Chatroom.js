@@ -48,7 +48,7 @@ class Chatroom extends Component {
   getActiveRoomMessages(){
     // pulling messages with message.roomId matching this.props.activeRoom.key
     this.setState( {activeMessages: this.state.messages.filter( message =>
-      message.roomId == this.props.activeRoom.key)}
+      message.roomId === this.props.activeRoom.key)}
     );
   }
 
