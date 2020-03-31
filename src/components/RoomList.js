@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import AddRoomModal from './AddRoomModal.js';
+import Modal from './Modal.js';
 import AddRoomForm from './AddRoomForm.js';
 
 class RoomList extends Component {
@@ -44,17 +44,15 @@ class RoomList extends Component {
   }
 
   handleDeleteRoom(key){
-    console.log(key);
     this.roomsRef.child(key).remove();
     this.setState( {roomDeleted: true} );
-    console.log( this.state.roomDeleted);
   }
 
   render() {
     return (
       <aside>
         <header className='site-header'>
-          <h1 id='site-name'>Bloc Chat</h1>
+          <h1 id='site-name'>Chatter</h1>
         </header>
         <section className='room-container'>
           <header>
@@ -81,11 +79,11 @@ class RoomList extends Component {
           <div className='modal-container'>
             { // room modal showing if showRoomModal true, true when 'add room' button clicked
               this.state.showRoomModal ?
-              (<AddRoomModal>
+              (<Modal>
                   <AddRoomForm roomsRef={this.roomsRef}
                                handleModalHide={this.handleModalHide}
                   />
-               </AddRoomModal>)
+               </Modal>)
               : null}
           </div>
 

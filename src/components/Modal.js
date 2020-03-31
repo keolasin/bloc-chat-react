@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
 
-class AddRoomModal extends Component {
+class Modal extends Component {
   constructor(props){
     super(props);
     this.el = document.createElement('section');
@@ -26,4 +26,4 @@ class AddRoomModal extends Component {
   }
 }
 
-export default AddRoomModal;
+export default Modal;

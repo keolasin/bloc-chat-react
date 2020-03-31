@@ -1,8 +1,10 @@
-/* room container */
+@import url("https://use.typekit.net/aqx8ufa.css");
+
 html, body {
   height: 100%;
   margin: 0;
 }
+
 .App {
   display: flex;
   height: 100vh;
@@ -125,8 +127,8 @@ aside {
 }
 
 .modal > section{
-  height: 25vh;
   width: 50vw;
+  min-height: 25vh;
   background-color: #B1DAEE;
   position: fixed;
   top: 15vh;
@@ -215,7 +217,7 @@ aside {
   font-size: 1.5em;
   color: #B1DAEE;
   margin: 0px 5px;
-  align-text: center;
+  text-align: center;
   justify-content: center;
 }
 

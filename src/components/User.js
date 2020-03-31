@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import About from './About.js';
 
 class User extends Component {
   constructor(props){
@@ -33,7 +34,7 @@ class User extends Component {
           this.props.user ? <button onClick={()=>this.handleSignOutClick()}>Sign out</button>
           : <button onClick={()=>this.handleSignInClick()}>Sign in</button>
         }
-
+        <About />
       </section>
     );
   }

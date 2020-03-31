@@ -4,6 +4,7 @@ import * as firebase from 'firebase';
 import RoomList from './components/RoomList.js';
 import Chatroom from './components/Chatroom.js';
 import User from './components/User.js';
+import About from './components/About.js';
 
 // Initialize Firebase
 var config = {
@@ -45,7 +46,7 @@ class App extends Component {
                   user={this.state.user}
                   messageAdded={this.state.messageAdded}/>
         <User firebase={firebase}
-              setUser={(event)=>this.setUser(event, this.user)} user={this.state.user} />
+              setUser={(event)=>this.setUser(event, this.user)} user={this.state.user} />>
         <section className="modal"></section>
       </div>
     );
