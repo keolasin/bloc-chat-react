@@ -6,7 +6,8 @@
             "REACT_APP_databaseURL": "@chatter-database-url",
             "REACT_APP_projectId": "@chatter-project-id",
             "REACT_APP_storageBucket": "@chatter-storage-bucket",
-            "REACT_APP_messagingSenderId": "@chatter-messaging-sender-id"
+            "REACT_APP_messagingSenderId": "@chatter-messaging-sender-id",
+            "REACT_APP_appId": "@chatter-app-id"
         }
     }
 }
