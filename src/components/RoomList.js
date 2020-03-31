@@ -67,10 +67,10 @@ class RoomList extends Component {
 
           {/* looping through the state 'rooms' array assigning each item to an h3 element and giving the activeRoom/clicked room a unique CSS id*/
             this.state.rooms.map( (room) =>
-            <section id={this.props.activeRoom.key === room.key ? 'active-room' : null}>
+            <section className='room-button-container'
+                     key={room.key}>
               <h3 className='rooms'
-                  key={room.key}
-
+                  id={this.props.activeRoom.key === room.key ? 'active-room' : null}
                   onClick={()=>this.props.handleRoomClick(room)}>{room.name}
               </h3>
               <button className='delete-room-button'

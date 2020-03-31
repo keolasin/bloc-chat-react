@@ -54,6 +54,15 @@ aside {
 #room-head{
   flex-basis: content;
 }
+
+.room-button-container{
+  display: flex;
+  align-items: center;
+  align-content: flex-start;
+  justify-content: space-around;
+}
+
+
 .rooms {
   font-size: 1.5em;
   color: #5147B3;

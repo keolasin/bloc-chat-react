@@ -39,7 +39,9 @@ class MessageField extends Component {
                  className ='input-message-field'
                  value={this.state.value}
                  onChange={(event)=>this.handleChange(event)}/>
-          <input id='submit-message' type="submit" value="Send" />
+          <input id='submit-message'
+                 type="submit"
+                 value="Send" />
         </form>
       </section>
     );
