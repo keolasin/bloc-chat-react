@@ -1,12 +1,12 @@
 {
     "build": {
         "env": {
-            "REACT_APP_apiKey": "@apikey",
-            "REACT_APP_authDomain": "@authdomain",
-            "REACT_APP_databaseURL": "@databaseurl",
-            "REACT_APP_projectId": "@projectid",
-            "REACT_APP_storageBucket": "@storagebucket",
-            "REACT_APP_messagingSenderId": "@messagingsenderid"
+            "REACT_APP_apiKey": "@chatter-api-key",
+            "REACT_APP_authDomain": "@chatter-auth-domain",
+            "REACT_APP_databaseURL": "@chatter-database-url",
+            "REACT_APP_projectId": "@chatter-project-id",
+            "REACT_APP_storageBucket": "@chatter-storage-bucket",
+            "REACT_APP_messagingSenderId": "@chatter-messaging-sender-id"
         }
     }
 }
