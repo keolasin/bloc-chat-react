@@ -8,12 +8,12 @@ import About from './components/About.js';
 
 // Initialize Firebase
 var config = {
-  apiKey: "AIzaSyAZjzpTf1LrKBqp-44ALeCtHaj2dxXCu0o",
-  authDomain: "bloc-chat-af605.firebaseapp.com",
-  databaseURL: "https://bloc-chat-af605.firebaseio.com",
-  projectId: "bloc-chat-af605",
-  storageBucket: "bloc-chat-af605.appspot.com",
-  messagingSenderId: "166282699186"
+  apiKey: process.env.REACT_APP_apiKey,
+  authDomain: process.env.REACT_APP_authDomain,
+  databaseURL: process.env.REACT_APP_databaseURL,
+  projectId: process.env.REACT_APP_projectId,
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderId
 }
 firebase.initializeApp(config);
 
