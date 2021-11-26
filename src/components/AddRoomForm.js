@@ -19,6 +19,7 @@ class AddRoomForm extends Component {
       name: this.state.value
     });
     this.setState( {value: '' } ); // resetting the state value to ''
+    this.props.handleModalHide();
     event.preventDefault();
   }
 
@@ -32,9 +33,14 @@ class AddRoomForm extends Component {
                    placeholder='Name a room!'
                    id ='room-text-field'
                    value={this.state.value}
-                   onChange={(event)=>this.handleChange(event)}/>
+                   onChange={(event)=>this.handleChange(event)}
+                   />
           </label>
-          <input id='create-room' type="submit" value="Create room" />
+          <input 
+            id="create-room"
+            type="submit"
+            value="Create room"
+          />
         </form>
         <button className='modal-btn'
                 onClick={this.props.handleModalHide}>Close</button>
