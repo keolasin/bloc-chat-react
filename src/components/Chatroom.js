@@ -74,8 +74,10 @@ class Chatroom extends Component {
             <section className='message-container'
                      key={message.key}>
               <p className='message-content'>{message.content}</p>
+              <div className='circle'>
+                <p className='message-username'>{message.username[0]}</p>
+              </div>
               <p className='message-sentAt'>{this.timeConverter(message.sentAt)}</p>
-              <p className='message-username'>{message.username}</p>
             </section>
           )}
         </section>

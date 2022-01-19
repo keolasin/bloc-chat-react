@@ -228,6 +228,7 @@ aside {
 
 .messages-bin{
   overflow: auto;
+  height: 88%;
 }
 
 .chatroom-container header {
@@ -242,31 +243,45 @@ aside {
 }
 
 .message-container {
-  display: flex;
-  top: 0;
-  left: 25vw;
-  background-color: #BEB9F1;
-  justify-content: flex-start;
-  align-items: center;
+
 }
 
 .message-content {
+  position: relative;
   font-size: 1em;
-  flex-grow: 2;
-  margin-left: 10px;
+  color: #FFEFD3;
+  background-color: #294C60;
+  border-radius: 15px;
+  margin: 10px;
+  padding: 10px;
+  width: 80%;
+  left: 50px;
+}
+
+.circle {
+  background-color: #FFC49B;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  position: relative;
+  left: 620px;
+  top: -55px;
 }
 
 .message-sentAt {
   margin: 0px 10px;
-  font-size: 0.6em;
-  color: grey;
-  bottom: 0;
+  position: relative;
+  left: 480px;
+  top: -55px;
+  font-size: 0.75em;
+  color: #FFEFD3;
 }
 
 .message-username {
+  margin: 0 auto;
   font-size: 1.1em;
-  color: #1D6D93;
-  margin-right: 10px;
+  color: #001B2E;
+  padding: 15px;
 }
 
 .user-signIn {
