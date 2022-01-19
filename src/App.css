@@ -1,4 +1,5 @@
-@import url("https://use.typekit.net/aqx8ufa.css");
+/* font import */
+@import url('https://fonts.googleapis.com/css2?family=Questrial&family=Rokkitt:wght@100;400;700&display=swap');
 
 html, body {
   height: 100%;
@@ -7,8 +8,18 @@ html, body {
 
 .App {
   display: flex;
+  flex-direction: column;
   height: 100vh;
-  background-color: #B1DAEE;
+  background-color: #111418;
+}
+
+.site-header {
+  display: flex;
+  width: 100vw;
+  background-color: #294C60;
+  border-radius: 15px;
+  height: 100px;
+  filter: drop-shadow(0px 4px 4px rgba(173, 182, 196, 0.5));
 }
 
 aside {
@@ -19,22 +30,15 @@ aside {
   flex-basis: content;
   background-color: #BEB9F1;
   border-right: white 1px solid;
-  max-width: 25vw;
-}
-
-#site-name {
-  font-size: 2.0em;
-  margin: 10px 20px;
-  color: #372CA2;
-}
-
-.site-header{
-  flex-basis: content;
+  width: 100vw;
 }
 
 .room-container {
-  background-color: #BEB9F1;
-  flex-basis: content;
+  margin: 10px auto;
+}
+
+.room-container:hover {
+  cursor: pointer;
 }
 
 .room-container h2 {
@@ -67,53 +71,119 @@ aside {
 
 .rooms {
   font-size: 1.5em;
-  color: #5147B3;
+  font-family: Questrial;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 19px;
+  text-align: center;
+  color: #001B2E;
   text-align: center;
   cursor: pointer;
+  background-color: #FFEFD3;
+  padding: 15px 28px;
+  border-radius: 15px;
+  border: 0px;
+  filter: drop-shadow(0px 4px 2px rgba(17, 20, 24, 0.25));
+  margin-right: 8px;
 }
 
 #active-room{
-  background-color: #372CA2;
-  color: #BEB9F1;
+  background-color: #001B2E;
+  color: #FFEFD3;
 }
 
-.delete-room-button{
-  padding: 5px;
-  border: 2px white solid;
-  margin: 10px;
-  color: white;
-  background-color: #372CA2;
-  font-size: 0.9em;
+.delete-room-button {
+  font-size: 1.4em;
+  font-family: Questrial;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 19px;
+  text-align: center;
+  color: #001B2E;
+  text-align: center;
   cursor: pointer;
+  background-color: #FFC49B;
+  padding: 12px;
+  border-radius: 15px;
+  border: 0px;
+  filter: drop-shadow(0px 4px 2px rgba(17, 20, 24, 0.25));
 }
 
 /* add room modal */
-#room-label{
-  color: #372CA2;
-  margin: 5px;
+#room-text-field{
+  margin: 10px;
+  font-family: Questrial;
+  font-size: 1em;
+  border: 0px;
+  border-radius: 10px;
+  background-color: #FFEFD3;
+  color: #001B2E;
+}
+#room-text-field[type=text] {
+  color: #001B2E;
+  opacity: 100%;
 }
 
-#room-text-field{
-  margin-left: 5px;
-  border: 1px white solid;
+#addRoom {
+  background-color: #FFEFD3;
+  border-radius: 15px;
+  font-size: 1em;
 }
 
 #create-room {
   padding: 5px;
-  background-color: #B1DAEE;
-  border: 2px white solid;
+  background-color: #FFC49B;
+  border: 0px;
+  border-radius: 15px;
   margin: 10px;
   font-size: 0.7em;
   cursor: pointer;
 }
 
 .modal-btn{
+  position: absolute;
+  top: 0;
+  right: 0;
   padding: 5px;
-  border: 2px white solid;
+  border: 0px;
+  border-radius: 10px;
   margin: 10px;
-  background-color: #BEB9F1;
+  background-color: #001B2E;
+  color: #FFEFD3;
+  filter: drop-shadow(0px 4px 4px rgba(17, 20, 24, 0.25));
   font-size: 0.9em;
   cursor: pointer;
+}
+
+.modal-btn:hover {
+  background-color: #294C60;
+  filter: drop-shadow(0px 4px 2px rgba(17, 20, 24, 0.5));
+}
+
+.modal-btn:active {
+  color: #FFC49B;
+  background-color: #294C60;
+  box-shadow: inset 0px 4px 2px rgba(17, 20, 24, 0.75);
+}
+
+#chatrooms-btn {
+  background-color: #001B2E;
+  font-size: 3em;
+  font-family: Questrial;
+  color: #FFEFD3;filter: drop-shadow(0px 4px 4px rgba(173, 182, 196, 0.5));
+  border-radius: 15px;
+  padding: 12px;
+  border: 0px;
+}
+
+#chatrooms-btn:hover {
+  color: #FFC49B;
+  background-color: #294C60;
+}
+
+#chatrooms-btn:active {
+  color: #FFEFD3;
+  background-color: #294C60;
 }
 
 .modal.showing {
@@ -127,34 +197,33 @@ aside {
 }
 
 .modal > section{
-  width: 50vw;
-  min-height: 25vh;
-  background-color: #B1DAEE;
-  position: fixed;
-  top: 15vh;
-  left: 25vw;
+  width: 80vw;
+  background-color: #294C60;
+  border-radius: 15px;
   z-index: 1;
+  margin: 50% auto;
+  padding: 7px;
   text-align: center;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   flex-basis: content;
+  filter: drop-shadow(0px 4px 4px rgba(17, 20, 24, 0.25));
 }
 
 .form-container {
   display: flex;
   align-items: center;
-  background-color: white;
 }
 
 .chatroom-container {
-  left: 25vw;
   display: flex;
   flex-direction: column;
   flex-grow: 3;
   width: fill;
   height: auto;
-  background-color: #B1DAEE;
+  background-color: #111418;
 }
 
 .messages-bin{
@@ -201,40 +270,37 @@ aside {
 }
 
 .user-signIn {
-  top: 0;
-  display: flex;
-  position: fixed;
-  right: 0;
-  flex-basis: content;
-  align-items: center;
-  justify-content: center;
-  align-content: center;
-  background-color: #1D6D93;
-  border: 1px white solid;
+  width: 100%;
+  margin-top: 45px;
+  font-family: Questrial;
+  color: #FFEFD3;
 }
 
-.user-signIn h1{
-  font-size: 1.5em;
-  color: #B1DAEE;
-  margin: 0px 5px;
-  text-align: center;
-  justify-content: center;
+.user-signIn h3 {
+  margin-right: 10px;
+  text-align: right;
+  width: 80%;
 }
 
 .user-signIn button {
-  background-color: #1D6D93;
-  color: #B1DAEE;
+  position: absolute;
+  font-size: 1.2em;
+  right: 10px;
+  top: 61px;
+  width: 70px;
   border: none;
-  height: 50px;
-  max-height: 80px;
-  font-size: 1em;
-  flex-basis: auto;
-  border-left: white 1px solid;
+  background-color: rgba(0,0,0,0);
+  color: #FFEFD3;
 }
 
 /* message input field */
 .message-form-container {
+  position: absolute;
   height: 10%;
+  width: 100%;
+  box-shadow: inset 0px 4px 2px rgba(17, 20, 24, 0.9);
+  border-radius: 15px 15px 0px 15px;
+  background-color: #294C60;
   bottom: 0;
   display: flex;
 }
@@ -247,21 +313,41 @@ aside {
 }
 
 .input-message-field{
+  font-family: Dosis;
+  border-radius: 15px;
+  border: 0px;
   flex-grow: 2;
   height: 50px;
-  background-color: #B1DAEE;
-  color: #1D6D93;
   font-size: 1.2em;
-  border: 1px solid #1D6D93;
   margin-left: 5px;
+  background-color: #294C60;
+  color: #FFEFD3
 }
 
 #submit-message {
-  padding: 5px;
-  border: 2px white solid;
+  font-family: Dosis;
+  font-style: normal;
+  font-weight: normal;
+  padding: 10px;
+  border: 0px;
+  border-radius: 15px;
   margin: 10px;
-  background-color: #1D6D93;
-  color: #B1DAEE;
+  background-color: #FFC49B;
+  color: #111418;
   font-size: 1.2em;
   cursor: pointer;
+}
+
+/* About modal */
+
+.about-info {
+  font-family: Questrial;
+  margin: 0 auto;
+  padding: 20px;
+  color: #FFEFD3;
+}
+
+.about-info h2 {
+  color: #FFC49B;
+  font-size: 2.0em;
 }

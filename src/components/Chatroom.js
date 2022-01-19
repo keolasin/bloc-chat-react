@@ -69,9 +69,6 @@ class Chatroom extends Component {
   render(){
     return(
       <article className='chatroom-container'>
-        <header>
-          <h1 className='room-name'>{this.props.activeRoom.name}</h1>
-        </header>
         <section className='messages-bin'>
           {this.state.activeMessages.map( message =>
             <section className='message-container'

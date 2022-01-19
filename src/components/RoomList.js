@@ -42,45 +42,36 @@ class RoomList extends Component {
 
   render() {
     return (
-      <aside>
-        <header className='site-header'>
-          <h1 id='site-name'>Chatter</h1>
-        </header>
-        <section className='room-container'>
-          <header>
-            <h2 id='room-head'>Available Rooms</h2>
-            <button className='modal-btn'
-                    onClick={this.handleModalShow}>
-                    Add Room
-            </button>
-          </header>
+      <section className='room-container'>
+        <button id="chatrooms-btn"
+                onClick={this.handleModalShow}>
+          Chatrooms
+        </button>
+        <div className='modal-container'>
+          { // room modal showing if showRoomModal true, true when 'add room' button clicked
+            this.state.showRoomModal ?
+            (<Modal>
+                {/* looping through the state 'rooms' array assigning each item to an h3 element and giving the activeRoom/clicked room a unique CSS id*/
+                  this.state.rooms.map( (room) =>
+                  <section className='room-button-container'
+                            key={room.key}>
+                    <h3 className='rooms'
+                        id={this.props.activeRoom.key === room.key ? 'active-room' : null}
+                        onClick={()=>this.props.handleRoomClick(room)}>{room.name}
+                    </h3>
+                    <button className='delete-room-button'
+                            onClick={()=>this.handleDeleteRoom(room.key)}>Delete</button>
+                  </section>)
+                }
+                <AddRoomForm 
+                  roomsRef={this.roomsRef}
+                  handleModalHide={this.handleModalHide}
+                />
+              </Modal>)
+            : null}
+        </div>
 
-          {/* looping through the state 'rooms' array assigning each item to an h3 element and giving the activeRoom/clicked room a unique CSS id*/
-            this.state.rooms.map( (room) =>
-            <section className='room-button-container'
-                     key={room.key}>
-              <h3 className='rooms'
-                  id={this.props.activeRoom.key === room.key ? 'active-room' : null}
-                  onClick={()=>this.props.handleRoomClick(room)}>{room.name}
-              </h3>
-              <button className='delete-room-button'
-                      onClick={()=>this.handleDeleteRoom(room.key)}>Delete</button>
-            </section>)
-          }
-
-          <div className='modal-container'>
-            { // room modal showing if showRoomModal true, true when 'add room' button clicked
-              this.state.showRoomModal ?
-              (<Modal>
-                  <AddRoomForm roomsRef={this.roomsRef}
-                               handleModalHide={this.handleModalHide}
-                  />
-               </Modal>)
-              : null}
-          </div>
-
-        </section>
-      </aside>
+      </section>
     );
   }
 }
