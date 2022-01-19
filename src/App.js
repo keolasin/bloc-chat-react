@@ -4,6 +4,7 @@ import * as firebase from 'firebase';
 import RoomList from './components/RoomList.js';
 import Chatroom from './components/Chatroom.js';
 import User from './components/User.js';
+import MastHead from './components/MastHead.js';
 
 // Initialize Firebase
 var config = {
@@ -38,6 +39,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <MastHead/>
         <RoomList firebase={firebase}
                   activeRoom={this.state.activeRoom}
                   handleRoomClick={(event)=>this.handleRoomClick(event, this.room)} />
@@ -45,8 +47,6 @@ class App extends Component {
                   activeRoom={this.state.activeRoom}
                   user={this.state.user}
                   messageAdded={this.state.messageAdded}/>
-        <User firebase={firebase}
-              setUser={(event)=>this.setUser(event, this.user)} user={this.state.user} />>
         <section className="modal"></section>
       </div>
     );

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import About from './About.js';
 
 class User extends Component {
   componentDidMount(){
@@ -24,12 +23,11 @@ class User extends Component {
   render(){
     return(
       <section className='user-signIn'>
-        <h1>{ this.props.user ? this.props.user.displayName : 'Guest' /*display the username */}</h1>
+        <h3>{ this.props.user ? this.props.user.displayName : 'Guest' /*display the username */}</h3>
         {// change sign-in/sign-out button depending if the user is signed in/out
           this.props.user ? <button onClick={()=>this.handleSignOutClick()}>Sign out</button>
           : <button onClick={()=>this.handleSignInClick()}>Sign in</button>
         }
-        <About />
       </section>
     );
   }

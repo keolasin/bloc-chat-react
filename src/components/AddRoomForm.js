@@ -26,11 +26,12 @@ class AddRoomForm extends Component {
   render(){
     return (
       <section className='form-container'>
-        <form onSubmit={(event)=>this.createRoom(event)}>
+        <form 
+          id = "addRoom"
+          onSubmit={(event)=>this.createRoom(event)}>
           <label htmlFor='text' id='room-label'>
-            New room
             <input type='text'
-                   placeholder='Name a room!'
+                   placeholder='Name a new room'
                    id ='room-text-field'
                    value={this.state.value}
                    onChange={(event)=>this.handleChange(event)}
